@@ -112,9 +112,9 @@ button.primary{background:var(--steel);color:var(--surface);border-color:var(--s
     <h1>TAKUROX 網站上稿文案</h1>
     <p class="lead">依 CADIIS 後台上稿順序排列：每張卡片是一個區塊，依序列出 <b>中文 → English → ไทย → Tiếng Việt → Bahasa Indonesia</b>，按「複製」後貼到對應語系分頁。內容一律以各語系 PDF 為準（英文：公制 v3；中文：v9；印尼文：v3；越南文：v4）。</p>
     <div class="legend">
-      <span class="chip chg">修改</span>英文站現有文字要換掉
-      <span class="chip add">新增</span>英文站缺這段
-      <span class="chip ok">一致</span>英文站已相同
+      <span class="chip chg">修改</span>網站現有文字要換掉
+      <span class="chip add">新增</span>網站缺這段
+      <span class="chip ok">一致</span>網站已相同（中文欄比對中文站、英文欄比對英文站）
       <span class="chip chk">確認</span>數字、型號或 PDF 錯字，需確認
       <span class="chip na">無</span>該語系 PDF 沒有這段
     </div>
@@ -127,6 +127,7 @@ button.primary{background:var(--steel);color:var(--surface);border-color:var(--s
 </div>
 
 <script src="i18n.js"></script>
+<script src="zh-status.js"></script>
 <script src="html-blocks.js"></script>
 <script>
 const P = [
@@ -227,8 +228,8 @@ const P = [
 { id:"dryer", name:"Dryer 產品頁 ×6", url:"/en/product/product01/dryer-14-kg（14x2 / 25 / 38 / 72 / 72 Fast 同）",
   note:"PDF 第 17–22 頁。六頁共用內文，網站目前只放了 4 段，缺很多。",
   b:[
-  {w:"Dryer 14 kg（AD014）規格", s:"chk", n:"網站寫 2210×1629×2537 mm、3,800 kg，跟 ABDN060 一模一樣，是複製時帶錯的。<b>PDF 沒有乾衣機的尺寸重量</b>，請向業務要正確規格。", t:"（PDF 無此數字，請向業務索取 AD014 尺寸與重量）"},
-  {w:"Dryer 72 kg Fast（ADN072S）規格與型號", s:"chk", n:"規格同樣誤用 ABDN060 的數字。PDF 也沒有 72 kg Fast 這個型號，請確認是否保留此頁。", t:"（PDF 無此型號與數字，請確認）"},
+  {w:"Dryer 14 kg（AD014）規格", s:"chk", n:"網站寫 2210×1629×2537 mm、3,800 kg，跟 ABDN060 一模一樣，是複製時帶錯的（中文站也一樣錯）。<b>PDF 沒有乾衣機的尺寸重量</b>，請向業務要正確規格。", t:"（PDF 無此數字，請向業務索取 AD014 尺寸與重量）"},
+  {w:"Dryer 72 kg Fast（ADN072S）規格與型號", s:"chk", n:"規格同樣誤用 ABDN060 的數字。中文站寫的是 1531×1809×2532 mm、1,170 kg，可參考。PDF 沒有 72 kg Fast 這個型號，請確認是否保留此頁。", t:"（PDF 無此型號與數字，請確認）"},
   {w:"Product Features 上方：介紹段", s:"add", t:"Rugged New Design. Faster Dry Times. Higher Efficiency\nThe Ultimate Value for Your Laundry Business\n\nRe-engineered from the ground up. The next generation of industrial drying\n\nPowered by our all-new Dual Inverter Drive System, this dryer maximizes drying efficiency and energy savings through independent variable control of the cylinder and blower. This advanced dual-drive technology provides exceptional fabric care while significantly reducing drying times. Engineered to increase daily throughput, enhance workplace safety, and simplify routine maintenance, it delivers the ideal balance of performance, reliability, and durability."},
   {w:"Multiple Heating Options 段", s:"chg", n:"內文一致，補上大標和三種機型標籤。", t:"Versatility to handle any laundry challenge\n\nMultiple Heating Options. Flexible Product Lineup\n\nUncompromised performance tailored to your business. Whether you prioritize faster dry times, superior finish quality, lower operating costs, or maximum safety, our industrial dryers deliver high-performance solutions for any application.\n\nAvailable in gas, electric, and steam configurations, making it easy to match the perfect power source to any facility.\n\nGas Models\nElectric Models\nSteam Models"},
   {w:"High Performance. Eco-Friendly 段", s:"add", t:"High Performance. Eco-Friendly\nAll-New Dual Inverter Drive System with Independent Control of the Drum and Blower\n\nAs the next generation of industrial drying, this machine is built from the ground up with a revolutionary core design that shatters limitations by simultaneously boosting energy efficiency and drying power. Engineered to maximize your daily throughput, reinforce workplace safety, and simplify routine maintenance, it delivers the ultimate fusion of practical performance and rugged dependability."},
@@ -317,7 +318,8 @@ P.forEach(p=>{
   const rows=MAP[p.id]||[];
   const a=document.createElement('a');a.href="#"+p.id;a.innerHTML=`${p.name}<span>${rows.length}</span>`;nav.appendChild(a);
   const sec=document.createElement('section');sec.className='page';sec.id=p.id;
-  sec.innerHTML=`<h2>${p.name}<small>${p.url}</small></h2><p class="pagenote">${p.note}</p>`;
+  const zn=(window.ZH_PAGENOTE||{})[p.id];
+  sec.innerHTML=`<h2>${p.name}<small>${p.url}</small></h2><p class="pagenote">【英文站】${p.note}</p>${zn?`<p class="pagenote">${zn}</p>`:""}`;
   const wrap=document.createElement('div');wrap.className='blocks';
   rows.forEach((r,ri)=>{
     const card=document.createElement('div');card.className='block';
