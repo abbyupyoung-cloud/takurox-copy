@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<style>:root{color-scheme:light}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>TAKUROX 英文站文案對照</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<style>
+/* Layout: sticky page index on the left, one card per website section on the right; each card = location + status + PDF copy with a copy button */
+:root{
+  --bg:#f3f5f8; --surface:#ffffff; --fg:#1b2533; --muted:#5d6b7d; --line:#d9dfe7;
+  --steel:#2f4660; --steel-soft:#e4eaf2;
+  --chg:#b4541a; --chg-bg:#fbeee4; --add:#1f7a4d; --add-bg:#e3f3ea;
+  --ok:#5d6b7d; --ok-bg:#eceff3; --chk:#9a2b2b; --chk-bg:#f8e5e5;
+  --ui:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --copy:"IBM Plex Sans","Segoe UI",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#11161d; --surface:#18202a; --fg:#e4e9f0; --muted:#97a3b3; --line:#2a3542;
+  --steel:#9fb8d6; --steel-soft:#223042;
+  --chg:#f0a070; --chg-bg:#3a2518; --add:#6fd1a0; --add-bg:#16301f;
+  --ok:#97a3b3; --ok-bg:#232c37; --chk:#f08a8a; --chk-bg:#3a1c1c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#11161d; --surface:#18202a; --fg:#e4e9f0; --muted:#97a3b3; --line:#2a3542;
+  --steel:#9fb8d6; --steel-soft:#223042;
+  --chg:#f0a070; --chg-bg:#3a2518; --add:#6fd1a0; --add-bg:#16301f;
+  --ok:#97a3b3; --ok-bg:#232c37; --chk:#f08a8a; --chk-bg:#3a1c1c; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--ui);font-size:15px;line-height:1.6}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:28px 64px}
+header h1{font-size:1.6rem;margin:0 0 4px;text-wrap:balance;color:var(--steel)}
+header p{margin:0;color:var(--muted);max-width:70ch}
+.legend{display:flex;flex-wrap:wrap;gap:8px 14px;margin:16px 0 0;align-items:center;font-size:.85rem;color:var(--muted)}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:14px}
+.toolbar label{display:flex;gap:6px;align-items:center;font-size:.9rem;cursor:pointer}
+.grid{display:grid;grid-template-columns:220px 1fr;gap:28px;margin-top:24px}
+nav{position:sticky;top:calc(env(safe-area-inset-top,0px) + 16px);align-self:start;display:flex;flex-direction:column;gap:2px}
+nav a{color:var(--fg);text-decoration:none;padding:6px 10px;border-radius:6px;font-size:.9rem;display:flex;justify-content:space-between;gap:8px}
+nav a:hover,nav a:focus-visible{background:var(--steel-soft);outline:none}
+nav a span{color:var(--muted);font-variant-numeric:tabular-nums;font-size:.8rem}
+main{min-width:0;display:flex;flex-direction:column;gap:40px}
+section.page>h2{font-size:1.25rem;margin:0 0 4px;color:var(--steel);display:flex;flex-wrap:wrap;gap:8px;align-items:baseline}
+section.page>h2 small{font-family:var(--copy);font-weight:400;font-size:.8rem;color:var(--muted)}
+.pagenote{margin:0 0 12px;color:var(--muted);font-size:.9rem;max-width:75ch}
+.pagebar{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+.blocks{display:flex;flex-direction:column;gap:12px}
+.block{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.bhead{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between}
+.where{font-weight:500;font-size:.92rem;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.chip{font-size:.75rem;font-weight:700;padding:1px 8px;border-radius:999px;letter-spacing:.04em;white-space:nowrap}
+.chg{color:var(--chg);background:var(--chg-bg)} .add{color:var(--add);background:var(--add-bg)}
+.ok{color:var(--ok);background:var(--ok-bg)} .chk{color:var(--chk);background:var(--chk-bg)}
+.note{font-size:.85rem;color:var(--muted);margin:0}
+.note b{color:var(--fg);font-weight:500}
+.txt{font-family:var(--copy);font-size:.95rem;line-height:1.65;white-space:pre-wrap;word-break:break-word;background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:10px 12px;margin:0;user-select:text}
+button{font:inherit;font-size:.82rem;cursor:pointer;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:6px;padding:4px 12px}
+button:hover{border-color:var(--steel)}
+button:focus-visible{outline:2px solid var(--steel);outline-offset:2px}
+button.done{color:var(--add);border-color:var(--add)}
+.hide-ok .block[data-s="ok"]{display:none}
+.pdf{color:var(--steel);background:var(--steel-soft)}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 10px}
+.tabs button{font-size:.9rem;padding:6px 14px;border-radius:999px}
+.tabs button[aria-selected="true"]{background:var(--steel);color:var(--surface);border-color:var(--steel)}
+#intro{margin:0;color:var(--muted);max-width:75ch}
+@media (max-width:820px){.grid{grid-template-columns:1fr}nav{position:static;flex-direction:row;flex-wrap:wrap}nav a{border:1px solid var(--line)}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+.lead{margin:0;color:var(--muted);max-width:78ch}
+.note.th{margin-top:10px}
+.na{color:var(--muted);background:var(--ok-bg)}
+.bname{font-weight:700;font-size:1rem;display:flex;gap:10px;align-items:center;color:var(--steel)}
+.num{font-family:var(--copy);font-variant-numeric:tabular-nums;font-size:.8rem;color:var(--muted);min-width:1.6em}
+.lrow{display:grid;grid-template-columns:128px 1fr;gap:12px;border-top:1px solid var(--line);padding-top:10px;min-width:0}
+.ltag{font-size:.82rem;font-weight:700;color:var(--fg);padding-top:3px}
+.lbody{min-width:0;display:flex;flex-direction:column;gap:6px}
+.lhead{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.lhead .lw{font-size:.82rem;color:var(--muted);flex:1;min-width:0}
+.empty{margin:0;font-size:.85rem;color:var(--muted);font-style:italic}
+.isempty{opacity:.75}
+.txt.code{font-family:ui-monospace,"Cascadia Code",Consolas,monospace;font-size:.78rem;line-height:1.5;max-height:340px;overflow:auto;white-space:pre;tab-size:2}
+nav a.htmlnav{font-weight:500;color:var(--steel)}
+@media (max-width:600px){.lrow{grid-template-columns:1fr;gap:4px}}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;align-items:start}
+.split .txt.code{max-height:none;height:100%}
+.fields{border:1px solid var(--line);border-radius:6px;padding:10px 12px;display:flex;flex-direction:column;gap:8px;background:var(--surface);min-width:0}
+.fsrc{font-size:.75rem;color:var(--muted);word-break:break-all}
+.fgrp{font-family:var(--copy);font-size:.75rem;font-weight:600;color:var(--steel);border-top:1px solid var(--line);padding-top:8px;margin-top:2px;letter-spacing:.03em}
+.frow{display:flex;flex-direction:column;gap:3px}
+.fmeta{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
+.fname{font-size:.78rem;font-weight:700;min-width:3.5em}
+.ref{font-size:.72rem;color:var(--chg);background:var(--chg-bg);padding:1px 8px;border-radius:999px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.ref small{margin-left:6px;opacity:.8;font-size:inherit}
+.fcopy{margin-left:auto;padding:1px 10px;font-size:.75rem}
+.ftext{font-family:var(--copy);font-size:.88rem;line-height:1.55;white-space:pre-wrap;word-break:break-word}
+@media (max-width:900px){.split{grid-template-columns:1fr}}
+.conv textarea{width:100%;min-height:200px;font-family:ui-monospace,"Cascadia Code",Consolas,monospace;font-size:.8rem;line-height:1.5;border:1px solid var(--line);border-radius:6px;padding:10px;background:var(--bg);color:var(--fg);resize:vertical}
+.conv textarea:focus-visible{outline:2px solid var(--steel);outline-offset:1px}
+.convbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+button.primary{background:var(--steel);color:var(--surface);border-color:var(--steel);font-weight:600;padding:6px 16px}
+#convout{min-width:0}
+.ftext.orig{font-size:.78rem;color:var(--muted)}
+.frow.miss .ftext.new{color:var(--chk)}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>TAKUROX 網站上稿文案</h1>
+    <p class="lead">依 CADIIS 後台上稿順序排列：每張卡片是一個區塊，依序列出 <b>中文 → English → ไทย → Tiếng Việt → Bahasa Indonesia</b>，按「複製」後貼到對應語系分頁。內容一律以各語系 PDF 為準（英文：公制 v3；中文：v9；印尼文：v3；越南文：v4）。</p>
+    <div class="legend">
+      <span class="chip chg">修改</span>英文站現有文字要換掉
+      <span class="chip add">新增</span>英文站缺這段
+      <span class="chip ok">一致</span>英文站已相同
+      <span class="chip chk">確認</span>數字、型號或 PDF 錯字，需確認
+      <span class="chip na">無</span>該語系 PDF 沒有這段
+    </div>
+    <p class="note th">泰文：資料夾內沒有泰文版 PDF，泰文欄目前都是空的，拿到泰文 PDF 後再補。</p>
+  </header>
+  <div class="grid">
+    <nav id="nav" aria-label="頁面"></nav>
+    <main id="main"></main>
+  </div>
+</div>
+
+<script src="i18n.js"></script>
+<script src="html-blocks.js"></script>
+<script>
+const P = [
+{ id:"brand", name:"首頁＋About（品牌）", url:"/en/  ·  /en/about",
+  note:"PDF 第 1–2 頁。首頁的 WHY US 01–04、STRENGTH 產業介紹，以及 About 的「BUILT TO EVOLVE」，PDF 都沒有對應內容；要以 PDF 為主的話建議刪除。",
+  b:[
+  {w:"首頁主標（取代 STEEL PRECISION. REFINED PERFORMANCE. 與 Steel Resolve, Purely Refined）", s:"chg", t:"Steeled Resolve. Masterfully Refined"},
+  {w:"首頁副標／About 副標（取代 Relentless Pursuit of Excellence, Setting the Standard for Laundry Equipment Durability）", s:"chg", t:"Uncompromising Excellence. Setting the Standard for Industrial Strength"},
+  {w:"首頁品牌介紹段（取代 Where craftsmanship meets the future… 99%… 整段）", s:"chg", n:"網站原文的「in-house production rate of up to 99%」PDF 沒有，一併拿掉。", t:"TAKUROX was born where master craftsmanship meets the future. Deeply rooted in commercial laundry, we turn our obsession with quality into the very soul of our brand. It is never just about washing efficiency. It is about ultimate durability, standing by your side for the long haul. In our name, TAKU is inspired by the Japanese tradition of master craftsmanship, representing our uncompromising precision, while X symbolizes our vision to define the future of washing technology."},
+  {w:"品牌標語（Logo 下方）", s:"add", t:"Rooted in Master Craftsmanship\nDriving the Future of Innovation"},
+  {w:"About 區塊大標", s:"add", t:"Core Philosophies"},
+  {w:"About 第 1 段", s:"chg", n:"內文一致，只把 Takurox 改成全大寫 TAKUROX。", t:"The Ultimate Standard of Absolute Stability\n\nAt TAKUROX, stability defines everything we build. We insist on a unibody reinforced structure and precision welding craftsmanship, ensuring our machines maintain peak performance even under the most intense operational demands. This relentless obsession with structural integrity guarantees that every time you start the machine, you experience nothing less than rock-solid, unwavering reliability."},
+  {w:"About 第 2 段", s:"chg", n:"標題錯字「Oper ational」去掉空格；Takurox → TAKUROX。", t:"Maximizing Operational Efficiency\n\nThe letter X embodies our endless pursuit of performance. At TAKUROX, we optimize energy efficiency and washing power to the absolute limit. Going far beyond mere equipment supply, our smart control panels and high efficiency motor controls slash operational costs, directly boosting your business profitability."},
+  {w:"About 第 3 段", s:"chg", n:"Takurox → TAKUROX。", t:"Your Trusted Partner for the Long Haul\n\nFrom industrial OPL laundries to commercial coin spaces, TAKUROX is the technological backbone you can count on. We anchor the quality standards so you can focus entirely on growth. This unwavering brand spirit ensures your washing operations run at peak performance every single day."}
+  ]},
+{ id:"overview", name:"Product Overview", url:"/en/product/product01",
+  note:"六個系列的介紹文都換成 PDF 各系列開頭段。",
+  b:[
+  {w:"Soft-Mount 系列：標題＋介紹", s:"chg", t:"Soft-Mount Washer-Extractors\n\nUnyielding Quality and Superior Performance\nWorld-Class Refinement\n\nBuilt with a robust construction, TAKUROX equipment is engineered for heavy-duty, continuous operation, achieving a perfect balance between high performance and energy-saving capabilities. The garment-protecting drum design delivers exceptional wash results, while superior extraction performance shortens drying cycles to significantly lower operating costs. Even after years of long-term use, the machine maintains premium wash quality, meeting the most stringent demands of professional environments with absolute stability."},
+  {w:"Soft-Mount 系列：容量按鈕", s:"chk", n:"PDF 只有 13 / 23 / 28 / 43 / 63 kg，<b>沒有 36 kg</b>。請確認 36 kg 要不要下架。", t:"13 kg\n23 kg\n28 kg\n43 kg\n63 kg"},
+  {w:"118 kg 系列：標題＋介紹（取代 Industrial Washer…compact design… 整段）", s:"chg", t:"Large Capacity Soft-mount Washer-Extractor\n\nSpace-saving design that maximizes floor space efficiency\nEngineered to deliver high-volume laundry output without taking up valuable floor space."},
+  {w:"Barrier 系列：標題＋介紹", s:"chg", t:"Barrier-Type Washer-Extractor\n\nEngineered for facilities with the highest hygiene standards, including food processing, pharmaceutical, and healthcare environments. By preventing cross-contamination, it protects clean laundry from re-contamination and helps ensure uncompromising hygiene compliance."},
+  {w:"Washer-Dryer Combos 系列：標題＋介紹", s:"chg", t:"Washer-Dryer Combos\n\nThe TAKUROX Washer-Dryer Combo delivers exceptional performance while maximizing your facility's floor space and significantly reducing operating costs.\n\nAvailable in both gas and steam heating configurations to match your installation needs. Choosing the right model boosts operational efficiency and maximizes space utilization."},
+  {w:"Barrier Washer-Dryer Combo 系列：標題＋介紹", s:"chg", t:"Barrier Washer-Dryer Combo\n\nEngineered for controlled environments such as bio-pharmaceutical and food processing facilities, this model offers exceptional cycle flexibility for small loads and specialized rewash applications. It helps meet the industry's strictest hygiene standards while maximizing operational efficiency."},
+  {w:"Barrier Washer-Dryer Combo 系列：容量按鈕（取代 80 kg）", s:"chg", t:"Wash 80 kg / Dry 40 kg"},
+  {w:"Dryers 系列：標題＋介紹", s:"chg", t:"Dryers\n\nRugged New Design. Faster Dry Times. Higher Efficiency\nThe Ultimate Value for Your Laundry Business\n\nRe-engineered from the ground up. The next generation of industrial drying\n\nPowered by our all-new Dual Inverter Drive System, this dryer maximizes drying efficiency and energy savings through independent variable control of the cylinder and blower. This advanced dual-drive technology provides exceptional fabric care while significantly reducing drying times. Engineered to increase daily throughput, enhance workplace safety, and simplify routine maintenance, it delivers the ideal balance of performance, reliability, and durability."},
+  {w:"Dryers 系列：容量按鈕", s:"chk", n:"PDF 只有 14 / 14×2 / 25 / 38 / 72 kg，<b>沒有「72 kg Fast」</b>。請確認要不要下架。", t:"14 kg\n14 kg x2\n25 kg\n38 kg\n72 kg"},
+  {w:"選單／麵包屑名稱", s:"chg", n:"網站選單的 Industrial Washer、Barrier Washer、Dryer 改成 PDF 的系列名稱。", t:"Soft-Mount Washer-Extractors\nLarge Capacity Soft-mount Washer-Extractors\nBarrier Washer-Extractors\nWasher-Dryer Combos\nBarrier Washer-Dryer Combos\nDryers"}
+  ]},
+{ id:"awn", name:"Soft-Mount 產品頁 ×6", url:"/en/product/product01/soft-mount-washer-13-kg（23/28/36/43/63 同）",
+  note:"PDF 第 3–6 頁。六頁共用內文，改一次套用六頁。另外：13 kg 頁的「Machine Dimensions (W×D×H)：」少了 mm，請和其他頁統一成「Machine Dimensions(W×D×H)mm：」。",
+  b:[
+  {w:"頁面標題（型號前）", s:"chg", t:"Soft-Mount Washer-Extractor AWN"},
+  {w:"Product Features 上方：介紹段", s:"add", t:"Unyielding Quality and Superior Performance\nWorld-Class Refinement\n\nBuilt with a robust construction, TAKUROX equipment is engineered for heavy-duty, continuous operation, achieving a perfect balance between high performance and energy-saving capabilities. The garment-protecting drum design delivers exceptional wash results, while superior extraction performance shortens drying cycles to significantly lower operating costs. Even after years of long-term use, the machine maintains premium wash quality, meeting the most stringent demands of professional environments with absolute stability."},
+  {w:"Product Features 圖示 8 項（取代 Starch Injection / Automatic Dosing Pump / Selectable Door… / Water Hammer… 整組）", s:"chg", n:"區塊標題用 PDF 的「Features at a Glance」。每項標題＋一句說明；圖示也需要對應換掉。", t:"Features at a Glance\n\nInverter-Driven High-Efficiency Motor\nDelivers energy-efficient, high-performance operation.\n\nAll Stainless Steel Wetted Parts\nPremium, corrosion-resistant stainless steel is used exclusively for all wetted parts.\n\nTouchscreen\nSimple, intuitive touchscreen operation for easy control\n\nDisc Brake\nQuickly stops the drum after extraction to reduce unloading wait time and improve workflow efficiency.\n\nDrum Inching Control\nHelps prevent garments from sticking to the inner drum, allowing for quick and easy unloading after extraction.\n\nDrum Gap Guard\nThoughtfully designed guards help prevent small garments from slipping between the drum and front panel.\n\nAutomatic Chemical Injection Ready\nProvides precise automatic chemical injection for consistent wash results while reducing chemical waste.\n\nWater Reclamation System\nReduced water consumption and operating costs."},
+  {w:"Energy Saving 段（取代含「IE… efficiency standards」那段）", s:"chg", n:"網站版有亂碼「IE􄿺」，且 PDF 沒有 IE 等級的說法。", t:"Energy Saving Technology\nHigh-Efficiency Motors and Control Technology\n\nTAKUROX models feature high-efficiency motors combined with our proprietary inverter technology. Motor output is automatically optimized to match the load, delivering precise control and efficient operation. This advanced drive system helps reduce energy consumption and environmental impact while maintaining outstanding washing performance, helping lower operating costs without compromising performance."},
+  {w:"Durability 段", s:"ok", t:"Durability\nRobust Construction Built for Years of Operation\n\nTAKUROX pursues ultimate machine rigidity to withstand high-load operational environments. The machine frame features an all-welded unibody design to ensure optimal balance and stability during operation, while the outer housing undergoes rigorous compression testing. Furthermore, the drum is constructed entirely from high-grade, rust-resistant stainless steel."},
+  {w:"Quality and Efficiency 大標（Wash Action 上方）", s:"add", t:"Quality and Efficiency\nUltimate Wash and Extraction Performance"},
+  {w:"Powerful Wash Action 段", s:"ok", t:"Powerful Wash Action\nGarment Protecting Drum Design\n\nSpecially designed internal lifters create a cascading wash action that delivers outstanding cleaning performance while reducing water consumption. Powerful mechanical action helps remove stubborn stains quickly while maintaining energy-efficient operation. Finely engineered drum perforations help prevent small items from becoming trapped, reducing the risk of fabric damage."},
+  {w:"Powerful Extraction Performance 段", s:"ok", t:"Powerful Extraction Performance\nReduced Drying Cycles for Lower Operating Costs\n\nA proprietary suspension system with six specially designed shock absorbers minimizes drum vibration during high-speed operation for smooth, stable performance. Combined with advanced inverter technology, the machine delivers high G-force extraction to remove more moisture during the spin cycle. By extracting more water before drying, it helps shorten drying times, reduce energy consumption, and lower operating costs."},
+  {w:"觸控面板段", s:"chg", n:"內容一致，只把標題 Touchscreen Control Panel 改為 Touchscreen Controls；並補上兩張圖說。", t:"Touchscreen Controls\n\nUp to 100 Programmable Cycles\nDisplays Cycle Names and Custom Descriptions\nUp to 14 Programmable Steps per Cycle (Includes 13 Wash/Extract Steps)\nPrecise RPM drum speed control and wash time adjustment in seconds\nReal-Time Display of Drum Speed and Machine Status\n10 Water Level Settings\n\nCycle Selection Interface\nHome Screen"},
+  {w:"Water Reclamation 段（取代 dual-drain…three-water-inlet… 那段）", s:"chg", t:"Water Reclamation System (optional)\n\nAvailable on touchscreen control models, the optional Water Reclamation System adds a second drain outlet and an additional water inlet, allowing water to be collected and reused in subsequent wash cycles. This helps reduce water consumption and utility costs."},
+  {w:"Water Reclamation 圖說", s:"add", t:"Dual Drain with Water Recovery\nTo Water Supply System\nWater Reuse Drain\nWastewater Drain\n\n3 Water Inlets (Hot, Cold, and Reuse)\nCold Water Inlet\nHot Water Inlet\nWater Reuse Inlet\nWater supply\nWater from Reclamation System"},
+  {w:"頁尾「其他容量推薦」（英文頁出現中文）", s:"chg", n:"PDF 沒有這個標題，用最簡單的英文即可。", t:"Other Capacities"}
+  ]},
+{ id:"awn118", name:"118 kg 產品頁", url:"/en/product/product01/industrial-washer-118-kg",
+  note:"PDF 第 7–8 頁。尺寸 1997×2323×2062 mm 與 PDF 一致。Load guide 的 Shirt 前後多了「=」和「•」、第 06 項有「/p>」殘碼，請一併清掉。",
+  b:[
+  {w:"頁面標題（取代 Industrial Washer AWN118）", s:"chg", t:"Large Capacity Soft-mount Washer-Extractor AWN118"},
+  {w:"Features 圖示 8 項（取代現有清單：第 08 項重複、「Injection Capability」用字不同、閥門那項 PDF 沒有）", s:"chg", t:"Features at a Glance\n\nInverter-Driven High-Efficiency Motor\nDelivers energy-efficient, high-performance operation.\n\nAll Stainless Steel Wetted Parts\nPremium, corrosion-resistant stainless steel is used exclusively for all wetted parts.\n\nTouchscreen\nSimple, intuitive touchscreen operation for easy control\n\nDisc Brake\nQuickly stops the drum after extraction to reduce unloading wait time and improve workflow efficiency.\n\nDrum Inching Control\nHelps prevent garments from sticking to the inner drum, allowing for quick and easy unloading after extraction.\n\nDrum Gap Guard\nThoughtfully designed guards help prevent small garments from slipping between the drum and front panel.\n\nAutomatic Chemical Injection Ready\nProvides precise automatic chemical injection for consistent wash results while reducing chemical waste.\n\nWater Reclamation System\nReduced water consumption and operating costs."},
+  {w:"Space-saving 段", s:"ok", t:"Space-saving design that maximizes floor space efficiency\n\nEngineered to deliver high-volume laundry output without taking up valuable floor space."},
+  {w:"尺寸圖說", s:"add", t:"Height 2062 mm (81.18 in)\nDepth 2323 mm (91.45 in)\nWidth 1997 mm (78.62 in)"},
+  {w:"Key Advantages（Two-way tilting 上方）", s:"add", t:"Key Advantages\nAdvanced structural design that improves operating efficiency and performance"},
+  {w:"Two-way tilting system 段", s:"ok", t:"Two-way tilting system\n\nFeaturing a two-way tilting drum, our equipment makes loading and unloading larger volumes of laundry effortless."},
+  {w:"Loading / Unloading 說明", s:"add", t:"Loading\nThe backward-tilting drum makes it incredibly easy for operators to slide laundry all the way to the back of the drum.\n\nUnloading\nThe tilted drum design makes it incredibly easy for operators to pull laundry out of the drum.\n\nSemi-automatic tilt control"},
+  {w:"自動潤滑段", s:"ok", t:"Automatic Bearing and Seal Lubrication System\n\nThe machine automatically displays a low lubricant warning on the touchscreen when lubricant levels are low. This automatic lubrication system helps keep the bearings properly lubricated, extending component life."},
+  {w:"避震段", s:"ok", t:"Outstanding Durability and Vibration Control\n\nThe air suspension system minimizes vibration from the drum, maintaining stable balance during high-speed extraction."}
+  ]},
+{ id:"abn", name:"Barrier Washer 產品頁", url:"/en/product/product01/barrier-washer-80-kg",
+  note:"PDF 第 9–10 頁。",
+  b:[
+  {w:"頁面標題與型號（目前 Barrier Washer ABN060，容量卻是 80 kg）", s:"chk", n:"PDF 只寫系列名 ABN、容量 80 kg。型號 ABN060 是否正確請確認；標題名稱改成 PDF 版。", t:"Barrier-Type Washer-Extractor ABN"},
+  {w:"Product Features 上方：介紹段", s:"add", t:"Engineered for facilities with the highest hygiene standards, including food processing, pharmaceutical, and healthcare environments. By preventing cross-contamination, it protects clean laundry from re-contamination and helps ensure uncompromising hygiene compliance."},
+  {w:"Product Features 圖示（Starch Injection…Water Hammer… 那組）", s:"chk", n:"這組是從 Soft-Mount 複製過來的，PDF 的 ABN 頁沒有圖示特色清單。建議刪除，或請 PM 提供 ABN 專屬的特色。", t:"（PDF 無對應文字，建議刪除此區塊）"},
+  {w:"Barrier Laundry Systems 段", s:"ok", t:"Barrier Laundry Systems\n\nBy separating the clean and soiled sides, our systems prevent re-contamination of processed goods. We help high-hygiene facilities achieve superior sanitary standards and optimized cost efficiency."},
+  {w:"Barrier 圖說", s:"add", t:"Soiled Side\nClean Side\nSoiled side loading\nClean side unloading"},
+  {w:"觸控面板段", s:"chg", n:"網站「with 􄿸-Second」是亂碼，應為 1-Second；標題改 Touchscreen Controls。", t:"Touchscreen Controls\n\nUp to 100 Programmable Cycles\nDisplays Cycle Names and Custom Descriptions\nUp to 12 Programmable Steps per Cycle (Includes 11 Wash/Extract Steps)\nPrecise RPM Control for Each Cycle Step with 1-Second Time Adjustment\nReal-Time Display of Drum Speed and Machine Status\n10 Water Level Settings\n\nCycle Selection Screen\nHome Screen"},
+  {w:"Status Indicator Lights 段＋燈號標籤", s:"ok", n:"內文一致。燈號是圖片，請確認圖上標籤為下列四個。", t:"Status Indicator Lights\n\nColor-coded status indicators provide real-time updates on cycle progress, effectively eliminating operator errors and ensuring a seamless laundry process.\n\nWashing\nExtracting\nCycle Complete\nError"},
+  {w:"自動潤滑段", s:"ok", t:"Automatic Bearing and Seal Lubrication System\n\nThe machine automatically displays a low lubricant warning on the touchscreen when lubricant levels are low. This automatic lubrication system helps keep the bearings properly lubricated, extending component life."},
+  {w:"Large Door Opening 段", s:"ok", t:"Large Door Opening Design\n\nThe oversized door opening allows for faster loading and unloading of large items, improving workflow efficiency."}
+  ]},
+{ id:"awd", name:"Washer-Dryer Combo ×2", url:"/en/product/product01/washer-dryer-combo-27-14-kg（35-18 同）",
+  note:"PDF 第 11–14 頁。兩頁共用內文。27/14 頁的主圖 alt 寫 awd035，順手改成 awd027。",
+  b:[
+  {w:"容量標示", s:"ok", t:"Wash 27 kg / Dry 14 kg\nWash 35 kg / Dry 18 kg"},
+  {w:"介紹段（The TAKUROX Washer-Dryer Combo… 後面補一句）", s:"add", t:"The TAKUROX Washer-Dryer Combo delivers exceptional performance while maximizing your facility's floor space and significantly reducing operating costs.\n\nAvailable in both gas and steam heating configurations to match your installation needs. Choosing the right model boosts operational efficiency and maximizes space utilization."},
+  {w:"Maximize Floor Space 段", s:"chg", n:"只差標題結尾多一個句點，以 PDF 為準拿掉。", t:"Maximize Floor Space. Boost Productivity\n\nBy combining both machines into a single-drum configuration, this solution reduces your laundry footprint by half. The automated wash-to-dry cycle cuts out the hassle of transferring items between machines, driving down operational labor costs.\n\nWasher\nDryer"},
+  {w:"Reduce Operating Expenses 段", s:"ok", t:"Reduce Operating Expenses\n\n10 programmable water level options\nFine-tune water levels using the 10 programmable water level options to match the exact size of your load. By optimizing water and chemical usage, this system comprehensively slashes utility costs (water, electricity, and fuel) to reduce operating expenses.\n\nHigh G-force extraction\nA rugged, heavy-duty frame and base structure ensure stable, high G-Force extraction performance. This effectively removes maximum moisture, significantly shortening subsequent drying times."},
+  {w:"Intuitive Touchscreen Interface 段", s:"add", t:"Intuitive Touchscreen Interface\n\nHigh-precision control allows programmable drum speeds with 1-second time increments for maximum flexibility across all fabric types. User-defined minimum and maximum drum speed limits provide precise process control.\n\nCycle Selection Screen\nStep Selection Screen\nIdle Screen"},
+  {w:"Early Garment Extraction 段", s:"ok", t:"Early Garment Extraction Feature\n\nOur early extraction feature prevents over-drying by letting operators remove dried garments mid-cycle. The rest of the load finishes perfectly, allowing real-time sorting to maximize operational efficiency."},
+  {w:"Optimized Drum Motion 段＋圖說", s:"ok", n:"內文一致，圖說若缺請補。", t:"Optimized Drum Motion Delivers Fast, Uniform Drying\n\nReversing drum action pairs a primary forward spin with intermittent reversals to ensure garments tumble evenly. This allows optimized airflow coverage for fast, uniform 360-degree drying.\n\nExhaust\nHeated Airflow\nForward rotation\nReverse rotation"},
+  {w:"安全功能段（網站標題寫 Gas Safety Features，要改成 Safety Features）", s:"chg", n:"這兩段在 PDF 屬於一般安全功能，不是瓦斯專屬。", t:"Safety Features\n\nAirflow Monitoring System\nIf a clogged lint screen or blower motor malfunction restricts airflow, built-in sensors automatically detect the condition and shut down the machine to help prevent equipment damage and potential safety hazards.\n\nTemperature Monitoring System\nIf drum temperature exceeds the preset limit, the system automatically issues an error alert and initiates a cool-down sequence. The reversing drum continuously tumbles the load to loosen garments, while forced-air ventilation rapidly dissipates heat to help prevent fabric damage and protect both the equipment and operators."},
+  {w:"Gas Model / Steam Model 段（網站有斷字：g as、achie ving、he at sour ce…）", s:"chg", t:"Gas Model\nIdeal for high-volume facilities like hotels, food processing plants, and hospitals. Choosing a gas model delivers rapid heating to process large loads of garments in short cycles, achieving outstanding results.\n\nSteam Model\nUtilizes your facility's existing boiler as the heat source. Steam heating provides exceptional temperature stability and uniformity, effectively reducing thermal stress on fabrics. This model is ideal for processing delicate garments that require a premium, high-quality finish."},
+  {w:"Gas Safety Features 段（瓦斯機專屬，網站缺）", s:"add", t:"Gas Safety Features\n\nTemperature Monitoring System\nIntegrated temperature sensors sit above the burner and on the side of the lint compartment, automatically shutting down operation during overheating to ensure safety.\n\nAbove the burner compartment\nSide of the lint filter compartment\n\nIgnition Failure Detection\nIn the event of an ignition failure, the system triggers an error alert, immediately stopping the cycle and automatically shutting off the gas supply.\n\nAirflow Monitoring System\nIf a clogged lint filter or blower motor malfunction causes insufficient airflow, sensors automatically stop the cycle to prevent equipment damage or safety hazards."}
+  ]},
+{ id:"abd", name:"Barrier Washer-Dryer Combo", url:"/en/product/product01/barrier-washer-dryer-combo-80-kg",
+  note:"PDF 第 15–16 頁。網站目前放的「Reduce Operating Expenses」是 Combo 共用特色，PDF 的 ABD 頁沒有；以 PDF 為主建議刪除。",
+  b:[
+  {w:"頁面標題與型號（目前 ABDN060）", s:"chk", n:"PDF 只寫系列名 ABD。型號 ABDN060 是否正確請確認。", t:"Barrier Washer-Dryer Combo ABD"},
+  {w:"容量", s:"ok", t:"Wash 80 kg / Dry 40 kg"},
+  {w:"介紹段", s:"add", t:"Engineered for controlled environments such as bio-pharmaceutical and food processing facilities, this model offers exceptional cycle flexibility for small loads and specialized rewash applications. It helps meet the industry's strictest hygiene standards while maximizing operational efficiency."},
+  {w:"Barrier Laundry Systems 段（網站用的是 ABN 版文字）", s:"chg", t:"Barrier Laundry Systems\n\nBy separating the soiled and clean sides, the system helps prevent cross-contamination, ensuring superior hygiene control for laundered goods.\n\nSoiled Side\nClean Side\nSoiled Side Loading\nClean Side Unloading"},
+  {w:"產品圖標籤", s:"add", t:"Front\nRear"},
+  {w:"觸控面板段（網站寫 12 steps）", s:"chk", n:"PDF 寫「Up to 14 … (Includes 11 Wash/Extract Steps)」。對照中文版是「14道工序（11道洗滌加脫水、烘乾、冷卻）」，所以 14 是對的，多出的 3 道是烘乾和冷卻。下面是英文 PDF 原文；要不要補上「plus drying and cooling」請跟 PM 確認。", t:"Touchscreen Controls\n\nUp to 100 Programmable Cycles\nDisplays Cycle Names and Custom Descriptions\nUp to 14 Programmable Steps per Cycle (Includes 11 Wash/Extract Steps)\nPrecise RPM Control for Each Cycle Step with 1-Second Time Adjustment\nReal-Time Display of Drum Speed and Machine Status\n10 Water Level Settings\n\nCycle Selection Screen\nHome Screen"},
+  {w:"Status Indicator Lights 段＋燈號標籤", s:"chk", n:"內文一致，但 ABD 的燈號和 ABN 不同。網站用的是同一張圖（product bottom pic8），請確認圖上是下列四個。", t:"Status Indicator Lights\n\nColor-coded status indicators provide real-time updates on cycle progress, effectively eliminating operator errors and ensuring a seamless laundry process.\n\nWashing\nCooling\nDrying\nError"},
+  {w:"自動潤滑段", s:"ok", t:"Automatic Bearing and Seal Lubrication System\n\nThe machine automatically displays a low lubricant warning on the touchscreen when lubricant levels are low. This automatic lubrication system helps keep the bearings properly lubricated, extending component life."}
+  ]},
+{ id:"dryer", name:"Dryer 產品頁 ×6", url:"/en/product/product01/dryer-14-kg（14x2 / 25 / 38 / 72 / 72 Fast 同）",
+  note:"PDF 第 17–22 頁。六頁共用內文，網站目前只放了 4 段，缺很多。",
+  b:[
+  {w:"Dryer 14 kg（AD014）規格", s:"chk", n:"網站寫 2210×1629×2537 mm、3,800 kg，跟 ABDN060 一模一樣，是複製時帶錯的。<b>PDF 沒有乾衣機的尺寸重量</b>，請向業務要正確規格。", t:"（PDF 無此數字，請向業務索取 AD014 尺寸與重量）"},
+  {w:"Dryer 72 kg Fast（ADN072S）規格與型號", s:"chk", n:"規格同樣誤用 ABDN060 的數字。PDF 也沒有 72 kg Fast 這個型號，請確認是否保留此頁。", t:"（PDF 無此型號與數字，請確認）"},
+  {w:"Product Features 上方：介紹段", s:"add", t:"Rugged New Design. Faster Dry Times. Higher Efficiency\nThe Ultimate Value for Your Laundry Business\n\nRe-engineered from the ground up. The next generation of industrial drying\n\nPowered by our all-new Dual Inverter Drive System, this dryer maximizes drying efficiency and energy savings through independent variable control of the cylinder and blower. This advanced dual-drive technology provides exceptional fabric care while significantly reducing drying times. Engineered to increase daily throughput, enhance workplace safety, and simplify routine maintenance, it delivers the ideal balance of performance, reliability, and durability."},
+  {w:"Multiple Heating Options 段", s:"chg", n:"內文一致，補上大標和三種機型標籤。", t:"Versatility to handle any laundry challenge\n\nMultiple Heating Options. Flexible Product Lineup\n\nUncompromised performance tailored to your business. Whether you prioritize faster dry times, superior finish quality, lower operating costs, or maximum safety, our industrial dryers deliver high-performance solutions for any application.\n\nAvailable in gas, electric, and steam configurations, making it easy to match the perfect power source to any facility.\n\nGas Models\nElectric Models\nSteam Models"},
+  {w:"High Performance. Eco-Friendly 段", s:"add", t:"High Performance. Eco-Friendly\nAll-New Dual Inverter Drive System with Independent Control of the Drum and Blower\n\nAs the next generation of industrial drying, this machine is built from the ground up with a revolutionary core design that shatters limitations by simultaneously boosting energy efficiency and drying power. Engineered to maximize your daily throughput, reinforce workplace safety, and simplify routine maintenance, it delivers the ultimate fusion of practical performance and rugged dependability."},
+  {w:"Dual Inverter Drive 段（網站把兩段合成一段，請拆回 PDF 結構）", s:"chg", t:"Dual Inverter Drive\nIndependent Speed Control for Both the Drum and Blower\n\nA Compact Motor Engineered to Deliver High Torque Output While Maximizing Energy Savings\nThrough precision inverter control, this system coordinates the drum and blower motors to achieve optimal operational balance and enhance drying efficiency. It automatically adjusts exhaust airflow based on load size, maintaining a stable drying environment while significantly reducing energy consumption.\n\nHassle-Free Maintenance. Reduced Service Downtime\nDirect-drive gear motor eliminates V-belts and pulleys. No belt replacements or tension adjustments required, significantly reducing routine maintenance costs."},
+  {w:"Dual Inverter 對照圖說", s:"add", t:"Conventional model\nRely on a belt-and-pulley drive system to rotate the Drum.\nBelt and Pulley System\nDrum Motor\nV-Belt\nBlower Motor\n\nNew Model\nUtilizing precision inverter control to independently adjust the speeds of the drum and blower motors.\nInverter-Controlled Drum Motor\nInverter-Controlled Blower Motor\nInverter Control"},
+  {w:"Programmable Controls 段", s:"add", t:"Programmable Controls with Adjustable Drum Speeds for Delicate Fabrics\n\nCustomizable drum speeds allow operators to adjust rotation speed for gentle drying of delicate fabrics, providing precise speed control tailored to different linen types and applications.\n\nCycle Configuration Screen\nBeyond standard operation, the controller enables programming of multiple operating parameters for greater flexibility and process control."},
+  {w:"Dual-Frequency 段", s:"add", t:"Dual-Frequency Capability\n\nFully compatible with both 50 Hz and 60 Hz power supplies.\n\n*Not available on ADN072"},
+  {w:"Axial Airflow 引言", s:"add", t:"Axial Airflow\n\nRe-engineered to replace conventional top-down airflow with an innovative rear-injection system that directs heated air directly through the drum for faster, more efficient drying."},
+  {w:"Optimized Heat Recirculation 段", s:"ok", t:"Optimized Heat Recirculation for Enhanced Drying Performance\n\nRe-engineered to replace conventional top-down airflow, this advanced design directs powerful airflow through the rear of the drum along the axial path. By minimizing heat loss and maximizing heat recirculation efficiency inside the drum, it significantly reduces drying times and delivers exceptional throughput for high-volume operations."},
+  {w:"Heat Recirculation 對照圖說", s:"add", t:"Conventional Model\nRelying on a traditional belt-and-pulley drive to rotate the drum, this conventional configuration introduces heated air from the top and exhausts it downward.\n\nNew Model\nUtilizing precision inverter control to independently adjust the speeds of the drum and blower motors, this advanced system directs heated air from the rear of the drum and exhausts it downward."},
+  {w:"Optimized Drum Design 段", s:"ok", n:"內文一致，網站標題兩行黏在一起，請分行。", t:"Optimized Drum Design. Maximized Drying Efficiency\nEnhanced Structural Durability\n\nFeaturing perforations approximately 20% larger in diameter to optimize airflow, this design significantly improves drying uniformity and overall cycle efficiency. The drum incorporates an advanced flanged perforation profile that helps prevent linen snagging while enhancing structural rigidity. Constructed from premium 304 stainless steel, it delivers exceptional corrosion resistance for high-capacity industrial operations.\n\nConventional Design\nNew Design"},
+  {w:"Intuitive Operation 大標", s:"add", t:"Intuitive Operation. Advanced Safety\nUser-Friendly Controls with Advanced Safety Features for Effortless Operation and Comprehensive Protection"},
+  {w:"Heavy-Duty Door Design 段", s:"add", t:"Heavy-Duty Door Design\nMaximized Loading Efficiency. Faster turnaround times\nErgonomic door design. Effortless operation. Advanced safety protection\n\nFeaturing an oversized glass window, this design provides clear visibility into the drum, enabling operators to monitor drying conditions at a glance.\n\nAn ergonomic door handle and optimized magnetic latch provide smooth, secure closing. The reversible door can be configured to open to the left or right for greater flexibility."},
+  {w:"Standard Removable Door Stop 段", s:"add", t:"Standard Removable Door Stop\n\nWhile the door opens to 135° with the stop installed, removing it expands the door swing to a full 180° to provide an extra-large opening for effortless linen loading and unloading."},
+  {w:"Door Safety Interlock", s:"add", t:"Advanced Safety\nDoor Safety Interlock\nThe machine immediately shuts down and triggers an audible alarm if the door is left unlatched, ensuring maximum operator safety."},
+  {w:"Streamlined Maintenance 段", s:"add", t:"Streamlined Maintenance\n\nHigh-Contrast Black Lint Screen with Cleaning Alert\nThe black lint screen makes spotting dust and lint significantly easier, making your routine cleaning cycle run smoother. The entire assembly can be pulled out effortlessly from the lower front of the machine.\n\nLint Screen Maintenance Reminder\nAllowing operators to program custom cleaning intervals, this feature ensures timely reminders to prevent operational faults and equipment damage caused by neglected lint buildup."},
+  {w:"Automatic Lint Door Detection", s:"add", t:"Advanced Safety\nAutomatic Lint Door Detection\nThe machine immediately shuts down and triggers an audible alarm if the lint compartment door is left open at startup or is opened during a cycle."},
+  {w:"Advanced Touchscreen Controls 段", s:"add", t:"Advanced Touchscreen Controls\nColor-coded user interface. Intuitive visual icons. Effortless navigation\n\nColor-coded push buttons offer tactile feedback while preventing accidental activation. Seamless screen integration enables detailed configuration and data logging to maximize operational efficiency and throughput.\n\nUp to 100 programmable cycles\nMulti-language display with region-specific language options\nAdvanced error logging and fault frequency query function\nStores up to 50 operational history records\nAccumulated operation time tracking and query\nSimple and user-friendly cycle copying and editing\n\nCycle Selection Screen\nManual Operation Screen\nError Log Screen"},
+  {w:"Advanced Moisture and Thermal Management 段", s:"add", t:"Advanced Moisture and Thermal Management\nPrevents Over-Drying for Maximum Energy Savings and Efficiency\n\nIn addition to standard timer settings, the system supports control programs based on reaching target temperatures. Once the exhaust temperature sensor detects the pre-set temperature, the control automatically advances to the next cycle phase. This precision management eliminates over-drying, cuts unnecessary run time, and elevates both energy savings and operational throughput."},
+  {w:"溫控範例圖說", s:"add", t:"Example: Drying Settings 60°C / 40 min\n\nConventional Programming\n40 min\nCool-down: 5 min\nTotal run time: 45 min\nAdvances to the cool-down phase after a 40-minute run time.\n\nTemperature Priority\n30 min\nCool-down: 5 min\nTotal run time: 35 min\nAutomatically advances to the cool-down phase after a 30-minute run time once the temperature reaches 60°C."},
+  {w:"Cool-Down Temperature Control", s:"add", t:"Advanced Safety\nCool-Down Temperature Control\nEven during the cool-down phase, the system cools fabrics down to the pre-set temperature. This minimizes the risk of burns or contact with hot components, effectively maximizing operator safety."}
+  ]}
+];
+
+
+/* 區塊對照：[區塊名稱, en, zh, id, vi]（各語系資料中的順序；-1 = 該語系 PDF 無此段） */
+const MAP = {
+brand:[["主標",0,0,0,0],["副標",1,1,1,1],["品牌介紹段",2,2,2,2],["品牌標語",3,3,3,3],["核心價值大標",4,4,4,4],["核心價值 1",5,5,5,5],["核心價值 2",6,6,6,6],["核心價值 3",7,7,7,7]],
+overview:[["系列名稱（選單）",9,0,0,0],["懸吊式洗衣機：介紹",0,1,1,1],["懸吊式洗衣機：容量",1,2,2,2],["大型洗衣機 AWN118：介紹",2,3,3,3],["隔離式洗衣機 ABN：介紹",3,4,4,4],["洗脫烘一體機 AWD：介紹",4,5,5,5],["洗脫烘一體機：容量","英文版容量放在「Washer-Dryer Combo」產品頁第 1 區塊",6,6,6],["隔離式洗脫烘一體機 ABD：介紹",5,7,7,7],["隔離式洗脫烘一體機：容量",6,8,"已併入上方區塊","已併入上方區塊"],["烘乾機：介紹",7,9,8,8],["烘乾機：容量",8,10,9,9]],
+awn:[["頁面標題",0,-1,-1,-1],["介紹段",1,-1,-1,-1],["耐用性",4,0,0,0],["節能科技",3,1,1,1],["品質與效率大標",5,2,2,2],["強效洗淨",6,3,3,3],["強力脫水",7,4,4,4],["機能一覽",2,5,5,5],["按鍵式面板",-1,6,-1,-1],["觸控式面板",8,7,6,6],["熱水洗滌記錄保存",-1,8,-1,-1],["排水再利用",9,9,7,7],["排水再利用圖說",10,10,8,8],["其他容量",11,-1,-1,-1]],
+awn118:[["頁面標題",0,-1,-1,-1],["機能一覽",1,-1,-1,-1],["省空間設計",2,0,0,0],["尺寸圖說",3,"已併入上方區塊","已併入上方區塊","已併入上方區塊"],["卓越優勢大標",4,1,1,1],["前後傾系統",5,2,2,2],["投入時／取出時",6,"已併入上方區塊","已併入上方區塊","已併入上方區塊"],["漏斗式",-1,3,-1,-1],["軸承油封自動給油管理",7,4,3,3],["耐久性與防震性",8,5,4,4]],
+abn:[["頁面標題與型號",0,-1,-1,-1],["介紹段",1,0,0,0],["產品特色圖示",2,-1,-1,-1],["隔離式洗衣系統",3,1,1,1],["隔離圖說",4,"已併入上方區塊","已併入上方區塊","已併入上方區塊"],["觸控式面板",5,2,2,2],["指示燈功能",6,3,3,3],["軸承油封自動給油管理",7,4,4,4],["大開口設計",8,5,5,5]],
+awd:[["容量",0,"中文容量在「產品總覽」頁","印尼文容量在「產品總覽」頁","越南文容量在「產品總覽」頁"],["介紹段",1,0,0,0],["節省空間",2,1,1,1],["節省營運成本",3,2,2,2],["觸控面板",4,3,3,3],["烘乾中途取衣",5,4,4,4],["滾筒控制",6,5,5,5],["安全設計",7,6,6,6],["瓦斯型／蒸氣型",8,7,7,7],["瓦斯型安全設計",9,8,8,8]],
+abd:[["頁面標題與型號",0,-1,-1,-1],["容量",1,"中文容量在「產品總覽」頁","印尼文容量在「產品總覽」頁","越南文容量在「產品總覽」頁"],["介紹段",2,0,0,0],["隔離式洗衣烘乾系統",3,1,1,1],["正面／背面",4,"已併入上方區塊","已併入上方區塊","已併入上方區塊"],["觸控式面板",5,2,2,2],["指示燈功能",6,3,3,3],["軸承油封自動給油管理",7,4,4,4]],
+dryer:[["AD014 規格",0,-1,-1,-1],["ADN072S 規格",1,-1,-1,-1],["介紹段",2,0,0,0],["熱源選項",3,1,1,1],["高效動力大標",4,2,2,2],["雙變頻驅動",5,3,3,3],["雙變頻對照圖說",6,4,4,4],["精緻衣物轉速",7,5,5,5],["頻率相容設計",8,6,6,6],["中軸氣流",9,7,7,7],["熱循環段",10,"已併入上方區塊","已併入上方區塊","已併入上方區塊"],["熱循環對照圖說",11,"已併入上方區塊","已併入上方區塊","已併入上方區塊"],["滾筒設計",12,8,8,8],["簡易操作大標",13,9,9,9],["門體設計",14,10,10,10],["可拆式門擋",15,"已併入上方區塊","已併入上方區塊","已併入上方區塊"],["門控開關",16,"已併入上方區塊","已併入上方區塊","已併入上方區塊"],["多功能觸控面板",19,11,11,11],["維護便利性",17,12,12,12],["濾網護蓋開關",18,"已併入「維護便利性」區塊","已併入「維護便利性」區塊","已併入「維護便利性」區塊"],["溫度優先程式",20,13,13,13],["溫度優先範例圖說",21,14,14,14],["冷風階段溫度設定",22,15,15,15]]
+};
+const X=window.I18N||{};
+const LANG=[{k:"zh",tag:"中文"},{k:"en",tag:"English"},{k:"th",tag:"ไทย"},{k:"vi",tag:"Tiếng Việt"},{k:"id",tag:"Bahasa Indonesia"}];
+const COL={en:1,zh:2,id:3,vi:4};
+const LABEL={chg:"修改",add:"新增",chk:"確認",ok:"一致",pdf:"",na:"無"};
+const EMPTY={zh:"中文 PDF 沒有這段",en:"英文 PDF 沒有這段",id:"印尼文 PDF 沒有這段",vi:"越南文 PDF 沒有這段"};
+const nav=document.getElementById('nav'), main=document.getElementById('main');
+
+function copyText(text, btn){
+  const done=()=>{btn.textContent="已複製";btn.classList.add('done');setTimeout(()=>{btn.textContent="複製";btn.classList.remove('done')},1600)};
+  const fallback=()=>{const pre=btn.closest('.lrow')?.querySelector('.txt');if(pre){const r=document.createRange();r.selectNodeContents(pre);const s=getSelection();s.removeAllRanges();s.addRange(r)}btn.textContent="已選取，請按 Ctrl+C"};
+  try{navigator.clipboard.writeText(text).then(done,fallback)}catch(e){fallback()}
+}
+function blockOf(k,pid,idx){
+  if(typeof idx!=="number"||idx<0) return null;
+  if(k==="en"){const p=P.find(x=>x.id===pid);return p&&p.b[idx]}
+  const p=X[k]&&X[k].pages.find(x=>x.id===pid);return p&&p.b[idx];
+}
+(window.HTML_ARTICLES||[]).forEach(art=>{
+  const a=document.createElement('a');a.href="#"+art.id;a.innerHTML=`${art.name}<span>HTML</span>`;a.className='htmlnav';nav.appendChild(a);
+  const sec=document.createElement('section');sec.className='page';sec.id=art.id;
+  sec.innerHTML=`<h2>${art.name}<small>${art.url}</small></h2><p class="pagenote">${art.note}</p>`;
+  const card=document.createElement('div');card.className='block';
+  art.langs.forEach(L=>{
+    const row=document.createElement('div');row.className='lrow';
+    if(L.empty){row.classList.add('isempty');row.innerHTML=`<div class="ltag">${L.tag}</div><div class="lbody"><p class="empty">${L.empty}</p></div>`;card.appendChild(row);return}
+    const code=window.buildOverviewHTML(art,L);
+    const R=window.OVERVIEW_REFS, ov=(R.override[L.k]||{});
+    const ref=(r)=>`<span class="ref" title="${R.pdf[L.k]}">PDF 第 ${r[0]} 頁<small>型錄 ${r[1]}</small></span>`;
+    const fields=[];
+    fields.push({f:"標籤",t:L.label,r:R.label,all:true});
+    L.items.forEach((it,i)=>{["標題","副標","內文"].forEach((nm,j)=>fields.push({f:nm,t:it[j],r:ov[i+"-"+j]||R.items[i][j],grp:i+1}))});
+    let fh=`<div class="fields"><div class="fsrc">出處：${R.pdf[L.k]}</div>`;
+    let last=0;
+    fields.forEach((x,fi)=>{
+      if(x.grp&&x.grp!==last){fh+=`<div class="fgrp">product01-${x.grp}</div>`;last=x.grp}
+      fh+=`<div class="frow"><div class="fmeta"><span class="fname">${x.f}${x.all?"（6 個系列共用）":""}</span>${ref(x.r)}<button type="button" class="fcopy" data-i="${fi}">複製</button></div><div class="ftext"></div></div>`;
+    });
+    fh+=`</div>`;
+    row.innerHTML=`<div class="ltag">${L.tag}</div><div class="lbody"><div class="lhead"><span class="chip pdf">HTML</span><span class="lw">貼到後台「Code」分頁</span><button type="button" class="hcopy">複製 HTML</button></div>${L.n?`<p class="note">${L.n}</p>`:""}<div class="split"><pre class="txt code"></pre>${fh}</div></div>`;
+    row.querySelector('.txt').textContent=code;
+    row.querySelector('.hcopy').addEventListener('click',e=>copyText(code,e.currentTarget));
+    row.querySelectorAll('.ftext').forEach((el,fi)=>{el.textContent=fields[fi].t});
+    row.querySelectorAll('.fcopy').forEach(b=>b.addEventListener('click',e=>copyText(fields[+b.dataset.i].t,e.currentTarget)));
+    card.appendChild(row);
+  });
+  const wrap=document.createElement('div');wrap.className='blocks';wrap.appendChild(card);sec.appendChild(wrap);main.appendChild(sec);
+});
+
+P.forEach(p=>{
+  const rows=MAP[p.id]||[];
+  const a=document.createElement('a');a.href="#"+p.id;a.innerHTML=`${p.name}<span>${rows.length}</span>`;nav.appendChild(a);
+  const sec=document.createElement('section');sec.className='page';sec.id=p.id;
+  sec.innerHTML=`<h2>${p.name}<small>${p.url}</small></h2><p class="pagenote">${p.note}</p>`;
+  const wrap=document.createElement('div');wrap.className='blocks';
+  rows.forEach((r,ri)=>{
+    const card=document.createElement('div');card.className='block';
+    card.innerHTML=`<div class="bname"><span class="num">${ri+1}</span>${r[0]}</div>`;
+    LANG.forEach(L=>{
+      const row=document.createElement('div');row.className='lrow';row.dataset.lang=L.k;
+      const b=L.k==="th"?null:blockOf(L.k,p.id,r[COL[L.k]]);
+      const s=b?(b.s||"pdf"):"na";
+      const chip=LABEL[s]?`<span class="chip ${s}">${LABEL[s]}</span>`:"";
+      if(!b){
+        row.innerHTML=`<div class="ltag">${L.tag}</div><div class="lbody"><p class="empty">${L.k==="th"?"尚無泰文 PDF":(typeof r[COL[L.k]]==="string"?r[COL[L.k]]:EMPTY[L.k])}</p></div>`;
+        row.classList.add('isempty');
+      }else{
+        row.innerHTML=`<div class="ltag">${L.tag}</div><div class="lbody"><div class="lhead">${chip}<span class="lw">${b.w}</span><button type="button">複製</button></div>${b.n?`<p class="note">${b.n}</p>`:""}<pre class="txt"></pre></div>`;
+        row.querySelector('.txt').textContent=b.t;
+        row.querySelector('button').addEventListener('click',e=>copyText(b.t,e.currentTarget));
+      }
+      card.appendChild(row);
+    });
+    wrap.appendChild(card);
+  });
+  sec.appendChild(wrap);main.appendChild(sec);
+});
+</script>
+<script src="converter.js"></script>
+
+</body>
+</html>
