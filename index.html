@@ -167,6 +167,19 @@ function locOf(ids){
   const f=segs[0], pages=[...new Set(segs.map(s=>s.pp))];
   return {seg:f,segs,pp:pages.join("、"),pdf:[...new Set(segs.map(s=>s.pdf))].join("、"),side:f.side,x:f.x,y:f.y};
 }
+/* 同一句在型錄多頁重複時，改選本頁機型所在頁的那一筆 */
+const BYTEXT={};for(const k in S){BYTEXT[k]={};S[k].forEach(s=>{(BYTEXT[k][s.t]=BYTEXT[k][s.t]||[]).push(s)})}
+function fixPages(res){
+  const cnt={};
+  res.forEach(r=>{(r&&r.zh||[]).forEach(i=>{const s=BYID[i];if(s&&BYTEXT.zh[s.t].length===1&&s.pdf>2&&s.pdf<13)cnt[s.pdf]=(cnt[s.pdf]||0)+1})});
+  const dom=+Object.keys(cnt).sort((a,b)=>cnt[b]-cnt[a])[0]||0;
+  const swap=(k,ids,page)=>(ids||[]).map(i=>{const s=BYID[i];if(!s||!page)return i;const alts=BYTEXT[k][s.t]||[];if(alts.length<2||s.pdf===page)return i;const hit=alts.find(a=>a.pdf===page);return hit?hit.id:i});
+  res.forEach(r=>{if(!r)return;
+    r.zh=swap("zh",r.zh,dom);
+    const z=(r.zh||[]).map(i=>BYID[i]).find(Boolean);const page=z?z.pdf:dom;
+    ["en","vi","id"].forEach(k=>{r[k]=swap(k,r[k],page)});
+  });
+}
 function textOf(ids,join){return (ids||[]).map(i=>BYID[i]).filter(Boolean).map(s=>s.t).join(join)}
 function finalText(r,k,join){const t=textOf((r||{})[k],join);if(t)return {t,src:"cat"};const tr=(r||{})[k+"_tr"];return tr&&String(tr).trim()?{t:String(tr).trim(),src:"tr"}:{t:"",src:""}}
 function corpus(k){return S[k].map(s=>`${s.id}\tp${s.pdf}${s.side==="左頁"?"L":s.side==="右頁"?"R":""} y${Math.round(s.y*100)}\t${s.t}`).join("\n")}
@@ -185,6 +198,9 @@ go.onclick=async()=>{
   const prompt=`You map text from a Chinese web page onto TAKUROX's printed catalog, which exists in Chinese, English, Vietnamese and Indonesian with the SAME page layout.
 
 Each catalog is given as numbered lines: "<id>\\t<page><L|R side> y<vertical % from top>\\t<text>".
+
+PAGE GUIDE (identical in all four catalogs): p1 cover; p2 brand story and contents; p3 Soft-Mount washer-extractors key features; p4 Soft-Mount AWN product page (touchscreen, water reclamation); p5 Large-capacity AWN118; p6 Barrier washer-extractor ABN; p7 Washer-dryer combos key features; p8 Washer-dryer combo AWD (gas/steam, gas safety); p9 Barrier washer-dryer combo ABD; p10 Dryers key features; p11 Dryers drive, airflow, drum; p12 Dryers operation and safety; p13 back cover.
+IMPORTANT: many lines repeat word-for-word on several pages (touchscreen lists, lubrication, barrier system, status lights, safety texts). First decide from ALL chunks which product the web page describes, then always take repeated lines from THAT product's page, in every language.
 
 For every numbered WEB CHUNK below:
 1. Find the Chinese catalog line(s) that carry the same content (web wording may be shortened, reworded, or merge several lines). Pick the ids in reading order.
@@ -213,6 +229,7 @@ ${corpus("id")}`;
     const res=await sample.json(prompt,{signal:ctl.signal,modelTier:"default"});
     if(!Array.isArray(res)) throw {code:"invalid_json"};
     const byI=[];res.forEach(r=>{if(r&&Number.isInteger(r.i))byI[r.i]=r});
+    fixPages(byI);
     render(parts,list,byI);
     const miss=list.filter((c,i)=>!byI[i]||["en","vi","id"].some(k=>!(byI[i][k]||[]).length)).length;
     msg.textContent=`完成：共 ${list.length} 段${miss?`，其中 ${miss} 段有語系在型錄找不到，已改用翻譯（紅色標示）`:"，全部取自型錄"}。`;
