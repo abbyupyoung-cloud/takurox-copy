@@ -80,7 +80,7 @@ td.chk small{display:block;color:var(--muted);font-size:.74rem;margin-top:2px}
 <div class="wrap">
   <header>
     <h1>TAKUROX 多語上稿轉換器</h1>
-    <p class="lead">貼上後台「Code」分頁的中文 HTML，按「轉換」。每段中文會依型錄找出英文（公制 v3）、越南文（v4）、印尼文（v3）的對應原文直接替換，文字一律取自型錄，不另外翻譯；中文內容不做修改。下方逐段列出各語系文字在型錄的頁碼與位置。</p>
+    <p class="lead">貼上後台「Code」分頁的中文 HTML，按「轉換」。每段中文會依型錄找出英文（公制 v3）、越南文（v4）、印尼文（v3）的對應原文直接替換，型錄有的段落一律用型錄原文；型錄找不到的段落，依中文意思翻譯，並盡量沿用型錄裡的用語（紅色標示）。中文內容不做修改。下方逐段列出各語系文字在型錄的頁碼與位置。</p>
   </header>
 
   <section class="card" aria-labelledby="in-h">
@@ -112,7 +112,7 @@ td.chk small{display:block;color:var(--muted);font-size:.74rem;margin-top:2px}
     <div class="legend">
       <span class="chip c-ok">頁碼一致</span>各語系在型錄同一頁、同一位置
       <span class="chip c-warn">位置不同</span>跟其他語系不在同一頁或同一位置，請翻型錄確認
-      <span class="chip c-bad">無對應</span>該語系型錄找不到這段
+      <span class="chip c-bad">型錄無此段・已翻譯</span>型錄找不到，依中文意思翻譯，用語盡量取自該語系型錄，請再看過
     </div>
     <div id="chunks" style="display:flex;flex-direction:column;gap:18px"></div>
   </section>
@@ -168,6 +168,7 @@ function locOf(ids){
   return {seg:f,segs,pp:pages.join("、"),pdf:[...new Set(segs.map(s=>s.pdf))].join("、"),side:f.side,x:f.x,y:f.y};
 }
 function textOf(ids,join){return (ids||[]).map(i=>BYID[i]).filter(Boolean).map(s=>s.t).join(join)}
+function finalText(r,k,join){const t=textOf((r||{})[k],join);if(t)return {t,src:"cat"};const tr=(r||{})[k+"_tr"];return tr&&String(tr).trim()?{t:String(tr).trim(),src:"tr"}:{t:"",src:""}}
 function corpus(k){return S[k].map(s=>`${s.id}\tp${s.pdf}${s.side==="左頁"?"L":s.side==="右頁"?"R":""} y${Math.round(s.y*100)}\t${s.t}`).join("\n")}
 
 let samplePromise=window.claude&&window.claude.use?window.claude.use("sample"):Promise.resolve(null);
@@ -189,9 +190,10 @@ For every numbered WEB CHUNK below:
 1. Find the Chinese catalog line(s) that carry the same content (web wording may be shortened, reworded, or merge several lines). Pick the ids in reading order.
 2. For English, Vietnamese and Indonesian, pick the line ids that are the translation of exactly those Chinese lines. They sit on the same page and side at a similar height — use the page/side/y tags to confirm. Pick whole lines only; never invent text.
 3. If the Chinese catalog has nothing for a chunk, return empty arrays and match "none". If one language lacks it, return an empty array for that language.
+4. FALLBACK TRANSLATION: whenever a language's id array is empty, fill "<lang>_tr" with a translation of the web chunk's meaning into that language. Write it the way that language's catalog writes: reuse its exact product names, series names, feature names, technical terms and phrasing wherever they apply (e.g. how the catalog names the drum, extraction, inverter, barrier/soiled/clean side, water levels, programmable cycles). Keep the same length and tone as the Chinese chunk; keep brand names (TAKUROX) and model codes unchanged. Leave "<lang>_tr" as "" when the id array is not empty.
 
 Reply with ONLY a JSON array, one object per chunk, in order:
-[{"i":0,"match":"exact"|"close"|"none","zh":["zh12"],"en":["en40"],"vi":["vi33"],"id":["id31"],"note":"short note in Traditional Chinese if the web text adds or drops content compared with the catalog, else empty"}]
+[{"i":0,"match":"exact"|"close"|"none","zh":["zh12"],"en":["en40"],"vi":["vi33"],"id":["id31"],"en_tr":"","vi_tr":"","id_tr":"","note":"short note in Traditional Chinese if the web text adds or drops content compared with the catalog, else empty"}]
 
 WEB CHUNKS:
 ${list.map((c,i)=>i+". "+c.txt).join("\n")}
@@ -212,8 +214,8 @@ ${corpus("id")}`;
     if(!Array.isArray(res)) throw {code:"invalid_json"};
     const byI=[];res.forEach(r=>{if(r&&Number.isInteger(r.i))byI[r.i]=r});
     render(parts,list,byI);
-    const miss=list.filter((c,i)=>!byI[i]||!["en","vi","id"].some(k=>(byI[i][k]||[]).length)).length;
-    msg.textContent=`完成：共 ${list.length} 段${miss?`，其中 ${miss} 段型錄沒有對應`:"，全部對到型錄"}。`;
+    const miss=list.filter((c,i)=>!byI[i]||["en","vi","id"].some(k=>!(byI[i][k]||[]).length)).length;
+    msg.textContent=`完成：共 ${list.length} 段${miss?`，其中 ${miss} 段有語系在型錄找不到，已改用翻譯（紅色標示）`:"，全部取自型錄"}。`;
   }catch(e){
     const M={cancelled:"已停止。",not_granted:"沒有允許此頁使用 Claude，無法轉換。",sampling_disabled:"這個帳號無法使用 Claude。",rate_limited:"呼叫太頻繁或已達用量上限，請稍後再試。",invalid_json:"回傳格式有誤，請再按一次；一直失敗的話，請把 HTML 分成幾段貼。",prompt_too_large:"HTML 太長，請分成幾段貼。",refused:"這次請求被拒絕，請檢查貼上的內容。"};
     msg.textContent=M[e&&e.code]||"連線中斷，請再按一次。";
@@ -238,10 +240,11 @@ function render(parts,list,res){
     const box=document.createElement("div");box.className="out";
     if(L.k==="th"){box.innerHTML=`<h3>${L.tag}</h3><p class="empty">目前沒有泰文型錄，無法產出。</p>`;outs.appendChild(box);return}
     const o=parts.slice();let rep=0;
-    list.forEach((c,ci)=>{const ids=(res[ci]||{})[L.k];const t=textOf(ids,L.join);if(!t)return;rep++;
+    let trn=0;
+    list.forEach((c,ci)=>{const ft=finalText(res[ci],L.k,L.join);const t=ft.t;if(!t)return;if(ft.src==="tr")trn++;else rep++;
       const lead=c.raw.match(/^\s*/)[0],trail=c.raw.match(/\s*$/)[0];o[c.pi]=lead+esc(t)+trail});
     const code=o.join("");
-    box.innerHTML=`<h3>${L.tag}<button type="button">複製 HTML</button></h3><p class="sub">${L.pdf}・已替換 ${rep}／${list.length} 段</p><pre class="code"></pre>`;
+    box.innerHTML=`<h3>${L.tag}<button type="button">複製 HTML</button></h3><p class="sub">${L.pdf}・型錄原文 ${rep} 段${trn?`・翻譯 ${trn} 段`:""}／共 ${list.length} 段</p><pre class="code"></pre>`;
     box.querySelector("pre").textContent=code;
     box.querySelector("button").onclick=e=>copyText(code,e.currentTarget);
     outs.appendChild(box);
@@ -250,17 +253,17 @@ function render(parts,list,res){
   list.forEach((c,ci)=>{
     const r=res[ci]||{};const base=locOf(r.zh);
     const div=document.createElement("div");div.className="chunk";
-    div.innerHTML=`<h3><span class="n">第 ${ci+1} 段</span><span class="site">中文：<b></b></span>${base?`<span class="chip c-info">中文型錄 p.${base.pp}${base.side?" "+base.side:""}</span>`:""}</h3>${r.note?`<p class="site" style="margin:0">說明：<span class="nt"></span></p>`:""}<div class="vtable"><table><thead><tr><th>語系</th><th>型錄原文</th><th>型錄頁碼・位置</th><th>核對</th></tr></thead><tbody></tbody></table></div>`;
+    div.innerHTML=`<h3><span class="n">第 ${ci+1} 段</span><span class="site">中文：<b></b></span>${base?`<span class="chip c-info">中文型錄 p.${base.pp}${base.side?" "+base.side:""}</span>`:""}</h3>${r.note?`<p class="site" style="margin:0">說明：<span class="nt"></span></p>`:""}<div class="vtable"><table><thead><tr><th>語系</th><th>內容（型錄原文或翻譯）</th><th>型錄頁碼・位置</th><th>核對</th></tr></thead><tbody></tbody></table></div>`;
     div.querySelector(".site b").textContent=c.txt;
     if(r.note)div.querySelector(".nt").textContent=r.note;
     const tb=div.querySelector("tbody");
     LANGS.forEach(L=>{
       const tr=document.createElement("tr");
       if(L.k==="th"){tr.innerHTML=`<td class="lang">${L.tag}</td><td class="txt"><span class="empty">無泰文型錄</span></td><td class="loc">—</td><td class="chk">—</td>`;tb.appendChild(tr);return}
-      const loc=locOf(r[L.k]);const t=textOf(r[L.k],L.join);
-      const v=verdict(base,loc);
+      const loc=locOf(r[L.k]);const ft=finalText(r,L.k,L.join);const t=ft.t;
+      const v=ft.src==="tr"?["c-bad","型錄無此段・已翻譯","用語參考型錄"]:verdict(base,loc);
       tr.innerHTML=`<td class="lang">${L.tag}</td><td class="txt"></td><td class="loc">${loc?`<b>型錄 p.${loc.pp}</b>${loc.side?`<small>${loc.side}・${vpos(loc.y)}${hpos(loc.x)}</small>`:""}<small>PDF 第 ${loc.pdf} 頁</small>`:"—"}</td><td class="chk"><span class="chip ${v[0]}">${v[1]}</span>${v[2]?`<small>${v[2]}</small>`:""}${t?`<button type="button" class="mini">複製</button>`:""}</td>`;
-      tr.querySelector(".txt").textContent=t||"（型錄找不到對應，HTML 保留中文）";
+      tr.querySelector(".txt").textContent=t||"（型錄找不到，翻譯也沒有產出，HTML 保留中文）";
       const b=tr.querySelector(".mini");if(b)b.onclick=e=>copyText(t,e.currentTarget);
       tb.appendChild(tr);
     });
